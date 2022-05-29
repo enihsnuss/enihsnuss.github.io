@@ -1,3 +1,4 @@
-http://example.com/2022/05/28/my-first-post/
-http://example.com/2022/05/28/hello-world/
-http://example.com/
+http://this1sirene.me/2022/05/28/hello-world/
+http://this1sirene.me/categories/index.html
+http://this1sirene.me/tags/index.html
+http://this1sirene.me/
