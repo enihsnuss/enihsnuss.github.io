@@ -1,0 +1,423 @@
+<!DOCTYPE html><html lang="zh_CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Java基础：Java核心技术卷1笔记 | 永远的自留地</title><meta name="keywords" content="代码"><meta name="author" content="Irene Heish"><meta name="copyright" content="Irene Heish"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="java基础CH5 继承5.1 类、超类和子类 反射（reflection）：在程序运行期间发现发现更多的类及其属性的能力。 关键字 this 和 superthis用法：1.引用隐式参数 2.调用该类其他的构造器 super用法：1.调用超类的方法 2.调用超类的构造器 。调用构造器的语句只能作为另一个构造器的第一条语句出现。 public Manager(String name, double">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础：Java核心技术卷1笔记">
+<meta property="og:url" content="http://this1sirene.me/2022/06/09/Java%E5%9F%BA%E7%A1%80%EF%BC%9AJava%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B71%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="永远的自留地">
+<meta property="og:description" content="java基础CH5 继承5.1 类、超类和子类 反射（reflection）：在程序运行期间发现发现更多的类及其属性的能力。 关键字 this 和 superthis用法：1.引用隐式参数 2.调用该类其他的构造器 super用法：1.调用超类的方法 2.调用超类的构造器 。调用构造器的语句只能作为另一个构造器的第一条语句出现。 public Manager(String name, double">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://this1sirene.me/img/Java1.jpeg">
+<meta property="article:published_time" content="2022-06-09T07:07:30.000Z">
+<meta property="article:modified_time" content="2022-06-09T08:15:50.991Z">
+<meta property="article:author" content="Irene Heish">
+<meta property="article:tag" content="代码">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://this1sirene.me/img/Java1.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://this1sirene.me/2022/06/09/Java%E5%9F%BA%E7%A1%80%EF%BC%9AJava%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B71%E7%AC%94%E8%AE%B0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Java基础：Java核心技术卷1笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2022-06-09 16:15:50'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="永远的自留地" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Java1.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">永远的自留地</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Java基础：Java核心技术卷1笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-06-09T07:07:30.000Z" title="Created 2022-06-09 15:07:30">2022-06-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-06-09T08:15:50.991Z" title="Updated 2022-06-09 16:15:50">2022-06-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Java基础：Java核心技术卷1笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="java基础"><a href="#java基础" class="headerlink" title="java基础"></a>java基础</h1><h2 id="CH5-继承"><a href="#CH5-继承" class="headerlink" title="CH5 继承"></a>CH5 继承</h2><h3 id="5-1-类、超类和子类"><a href="#5-1-类、超类和子类" class="headerlink" title="5.1 类、超类和子类"></a>5.1 类、超类和子类</h3><ol>
+<li><h5 id="反射（reflection）：在程序运行期间发现发现更多的类及其属性的能力。"><a href="#反射（reflection）：在程序运行期间发现发现更多的类及其属性的能力。" class="headerlink" title="反射（reflection）：在程序运行期间发现发现更多的类及其属性的能力。"></a>反射（reflection）：在程序运行期间发现发现更多的类及其属性的能力。</h5></li>
+<li><h5 id="关键字-this-和-super"><a href="#关键字-this-和-super" class="headerlink" title="关键字 this 和 super"></a>关键字 this 和 super</h5><h5 id="this用法："><a href="#this用法：" class="headerlink" title="this用法："></a>this用法：</h5><p>1.引用隐式参数</p>
+<p>2.调用该类其他的构造器</p>
+<h5 id="super用法："><a href="#super用法：" class="headerlink" title="super用法："></a>super用法：</h5><p>1.调用超类的方法</p>
+<p>2.调用超类的构造器 。调用构造器的语句只能作为另一个构造器的第一条语句出现。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">Manager</span><span class="params">(String name, <span class="type">double</span> salary, <span class="type">int</span> year, <span class="type">int</span> month, <span class="type">int</span> day)</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="built_in">super</span>(name, salary, year, month, day);</span><br><span class="line">  bonus = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h5></li>
+</ol>
+<p>​		ClassCastException  类抛出异常、类型强制转换异常</p>
+<p>​		子类可以强转为超类，超类不能强转为子类，向上兼容</p>
+<p>​		在进行强转之前，要先查看是否可以强转成功：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(staff[<span class="number">1</span>] <span class="keyword">instanceof</span> Manager)&#123;</span><br><span class="line">  boss = (Manager) staff[<span class="number">1</span>];</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><h5 id="java不支持多继承，支持多层继承"><a href="#java不支持多继承，支持多层继承" class="headerlink" title="java不支持多继承，支持多层继承"></a>java不支持多继承，支持多层继承</h5></li>
+<li><h5 id="override-覆盖-x2F-重写-🆚-overload-重载"><a href="#override-覆盖-x2F-重写-🆚-overload-重载" class="headerlink" title="override 覆盖&#x2F;重写 🆚 overload 重载"></a>override 覆盖&#x2F;重写 🆚 overload 重载</h5><p><strong>Override：</strong>是子类对父类的允许访问的方法的实现过程进行重新编写, 返回值和形参都不能改变。</p>
+<p><strong>overload：</strong>是在一个类里面，方法名字相同，而参数不同。返回类型可以相同也可以不同。每个重载的方法（或者构造函数）都必须有一个独一无二的参数类型列表。最常用的地方就是构造器的重载。</p>
+<p>方法的重写(Overriding)和重载(Overloading)是<strong>java多态性</strong>的不同表现，重写是父类与子类之间多态性的一种表现，重载可以理解成多态的具体表现形式。</p>
+</li>
+<li><h5 id="关键字-final"><a href="#关键字-final" class="headerlink" title="关键字 final"></a>关键字 final</h5><p><strong>final  类：</strong>此类不能被继承</p>
+<p><strong>final 方法：</strong>此方法不能被子类覆盖</p>
+<p><strong>final 变量：</strong>必须进行初始化操作</p>
+<p>将一个类声明为final，只有其中的方法自动变成final，而不包括其中的域。</p>
+<p><strong>Sting类是final类</strong></p>
+</li>
+<li><p>抽象类 abstract</p>
+<p>抽象类可以<strong>包含具体方法</strong>、抽象方法</p>
+<p>不能被实例化，但可以创建具体子类对象</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="title function_">Person</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span> String name;</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">Person</span><span class="params">(Stirng name)</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student <span class="keyword">extends</span> <span class="title class_">Person</span>()</span><br><span class="line">&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&quot;Tom&quot;</span>); <span class="comment">//❌</span></span><br><span class="line"><span class="type">Person</span> <span class="variable">p</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;Tom&quot;</span>,<span class="string">&quot;Economics&quot;</span>);<span class="comment">//✅</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>java中的4个访问修饰符</p>
+<ol>
+<li><p><strong>private</strong> —- 仅对本类可见</p>
+</li>
+<li><p><strong>public</strong> —- 对所有类可见</p>
+</li>
+<li><p><strong>protected</strong> —- 对本包和所有子类可见</p>
+</li>
+<li><p><strong>默认、不需要修饰符</strong> —- 对本包可见</p>
+<p><strong>最好将类中的域标记为private，而将方法标记为public</strong></p>
+<p>将域或方法声明为protected，使得超类中某些方法允许被子类访问，或允许子类的方法访问超类的某个域</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="5-2-Object：所有类的超类"><a href="#5-2-Object：所有类的超类" class="headerlink" title="5.2 Object：所有类的超类"></a>5.2 Object：所有类的超类</h3><ol>
+<li><h5 id="equals方法"><a href="#equals方法" class="headerlink" title="equals方法"></a>equals方法</h5><p>用于检测一个对象是否等于另外一个对象，object类中的equals方法是用来比较首地址的，等同于&#x3D;&#x3D;。String中的equals方法被重写用于比较字符串中所包含的内容是否相同。</p>
+<p>如果是基本类型比较，那么只能用&#x3D;&#x3D;来比较，不能用equals </p>
+<p><strong>&#x3D;&#x3D; 与 equals() 的区别</strong></p>
+<p>1.对于字符串变量、基本类型的包装类型，比如Boolean、Character、Byte、Shot、Integer、Long、Float、Double等的引用变量：（推荐用equals）</p>
+<p>   &#x3D;&#x3D;：比较两个变量的对象在内存中的首地址。</p>
+</li>
+</ol>
+<p>​	      equals()：比较字符串中所包含的内容是否相同。 </p>
+<p>​		2.对于非字符串变量：</p>
+<p>​		&#x3D;&#x3D;与equals用法相同，用于比较对象值</p>
+<ol start="2">
+<li><h5 id="hashCode方法"><a href="#hashCode方法" class="headerlink" title="hashCode方法"></a>hashCode方法</h5><p>hashCode 散列码：由对象导出的一个没有规律的正、负整型值</p>
+<p>但字符串的散列码是由内容导出的，所以内容相同的字符串的hashCode也相同。</p>
+<ul>
+<li><p>重写equals()必须重写hashCode()</p>
+</li>
+<li><p>哈希存储结构中，添加元素重复性校验的标准就是先检查hashCode值，后判断equals()</p>
+</li>
+<li><p>两个对象equals()相等，hashcode()必定相等</p>
+</li>
+<li><p>两个对象hashcode()不等，equals()必定也不等</p>
+</li>
+<li><p>两个对象hashcode()相等，对象不一定相等，需要通过equals()进一步判断。</p>
+</li>
+</ul>
+<p>对于数组类型的域，可以使用静态的Arrays.hashCode方法计算散列码</p>
+</li>
+<li><h5 id="toString-方法"><a href="#toString-方法" class="headerlink" title="toString 方法"></a>toString 方法</h5></li>
+</ol>
+<p>​		用于返回表示对象值的字符串；只要对象与一个字符串通过操作符 “+” 相连接，java编译就会自动调用toString方法。</p>
+<p>​		在调用x.toString()的地方可以用 “”+x 来替代，且如果x是基本类型，这条语句照样能执行。</p>
+<p>​		object类定义了toString方法，用来打印输出对象所属的类名@散列码，为了直观显示，要自己重写toString方法。</p>
+<p>​		打印一维数组可以调用静态方法Arrays.toString方法</p>
+<p>​		打印多维数组可以调用Arrays.deepToString方法</p>
+<h3 id="5-3-泛型数组列表-ArrayList-lt-gt"><a href="#5-3-泛型数组列表-ArrayList-lt-gt" class="headerlink" title="5.3 泛型数组列表 ArrayList&lt;&gt;"></a>5.3 泛型数组列表 ArrayList&lt;&gt;</h3><p><strong>1.访问数组列表元素</strong></p>
+<p>​		java允许在运行时确定数组的大小。</p>
+<p>​		ArrayList是一个采用类型参数（type parameter）的泛型类（generic class）。它被称作菱形语法。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//声明和构造一个保存100个Empolyee对象的数组列表</span></span><br><span class="line">ArrayList&lt;Employee&gt; staff = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;Employee&gt;(<span class="number">100</span>);</span><br><span class="line"><span class="comment">//在java SE7中，可以省去右边的类型参数</span></span><br><span class="line">ArrayList&lt;Employee&gt; staff = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(<span class="number">100</span>);</span><br><span class="line"><span class="comment">//数组容量还可以用ensureCapacity方法来设置</span></span><br><span class="line">staff.ensureCapacity(<span class="number">100</span>);</span><br><span class="line"><span class="comment">//size方法将返回数组列表中包含的实际元素数目,相当于数组a.length</span></span><br><span class="line">staff.size();</span><br><span class="line"><span class="comment">//一旦确定数组列表的大小不再发生变化，就可以调用trimToSize方法，此方法将调整存储区域大小为当前元素数目所需要的存储空间</span></span><br><span class="line">staff.trimToSize();</span><br><span class="line"><span class="comment">//添加元素到数组列表 add</span></span><br><span class="line">staff.add(<span class="keyword">new</span> <span class="title class_">Employee</span>(<span class="string">&quot;Tom&quot;</span>,<span class="number">7500</span>,<span class="number">1987</span>,<span class="number">12</span>,<span class="number">15</span>));</span><br><span class="line"><span class="comment">//在数组列表中间插入元素，使用带参数的add</span></span><br><span class="line">staff.add(n,e);</span><br><span class="line"><span class="comment">//在数组列表中间删除一个元素</span></span><br><span class="line">staff.remove(n);</span><br><span class="line"><span class="comment">//访问数组列表元素</span></span><br><span class="line">staff.get(n);</span><br><span class="line"><span class="comment">//修改数组列表元素 set</span></span><br><span class="line">staff.set(n,(<span class="string">&quot;Jerry&quot;</span>,<span class="number">7500</span>,<span class="number">1987</span>,<span class="number">12</span>,<span class="number">15</span>));</span><br><span class="line"><span class="comment">//用toArray将数组元素拷贝到一个数组中</span></span><br><span class="line">ArrayList&lt;X&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">X a[] = <span class="keyword">new</span> <span class="title class_">X</span>[list.size()];</span><br><span class="line">list.toArray(a);</span><br></pre></td></tr></table></figure>
+
+<p> <strong>2.类型化与原始数组列表的兼容性</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//对于没有使用类型参数的旧代码：</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EmployeeDB</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">update</span><span class="params">(ArrayList list)</span>&#123;...&#125;</span><br><span class="line">  <span class="keyword">public</span> ArrayList <span class="title function_">find</span><span class="params">(String query)</span>&#123;...&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//可以把类型化ArrayList赋给一个原始ArrayList</span></span><br><span class="line">ArrayList&lt;Employee&gt; staff = ...</span><br><span class="line">employeeDB.update(staff);</span><br><span class="line"><span class="comment">//把原始ArrayList赋给类型化ArrayList会得到一个警告</span></span><br><span class="line">ArrayList&lt;Employee&gt; result = employeeDB.find(query);<span class="comment">//⚠️yields warning</span></span><br><span class="line"><span class="comment">//即使强制类型转换，也会被警告</span></span><br><span class="line">ArrayList&lt;Employee&gt; result = ArrayList&lt;Employee&gt; employeeDB.find(query);</span><br><span class="line"><span class="comment">//可以用@SuppressWarnings(&quot;unchecked&quot;)标注来标记这个变量可以接受类型转换</span></span><br><span class="line"><span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">ArrayList&lt;Employee&gt; result = ArrayList&lt;Employee&gt; employeeDB.find(query);<span class="comment">//yield another warning</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-4-对象包装器与自动装箱"><a href="#5-4-对象包装器与自动装箱" class="headerlink" title="5.4 对象包装器与自动装箱"></a>5.4 对象包装器与自动装箱</h3><p>​		final 对象包装器类（wrapper）：Integer、Long、Float、Double、Short、Byte、Character、Void、Boolean。不允许更改包装在其中的值，不能定义子类。（wrapper是final类）</p>
+<p>​		ArrayList<Integer> 的效率远远低于int[]，应该用它来构造小型集合，当对操作方便性的需要高于执行效率时。</p>
+<p>​		自动装箱（autoboxing）：把int值转换为Integer对象		</p>
+<p>​		自动拆箱（Auto-unboxing）：把Integer对象转换为int值</p>
+<h3 id="5-5参数数量可变的方法"><a href="#5-5参数数量可变的方法" class="headerlink" title="5.5参数数量可变的方法"></a>5.5参数数量可变的方法</h3><p>​		Object… args,表示这个方法可以接收任意数量的参数</p>
+<p>​		允许将数组传递给可变参数方法的最后一个参数，例如：	</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.printf(<span class="string">&quot;%d %s&quot;</span>,<span class="keyword">new</span> <span class="title class_">Object</span>[]&#123;<span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="number">1</span>),<span class="string">&quot;widgets&quot;</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-6-枚举类-enum"><a href="#5-6-枚举类-enum" class="headerlink" title="5.6 枚举类 enum"></a>5.6 枚举类 enum</h3><p>​		在比较两个枚举类型的值时，直接使用&#x3D;&#x3D;，不要用equals。</p>
+<p>​		枚举类中域声明为<code>private final</code>，保证安全。	</p>
+<p>​		所有的枚举类型都是Enum类的子类。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">Size</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">//()内是枚举常量的参数，必须创建对应参数的构造器</span></span><br><span class="line">  SMALL(<span class="string">&quot;s&quot;</span>),</span><br><span class="line">  MEDIUM(<span class="string">&quot;M&quot;</span>),</span><br><span class="line">  LARGE(<span class="string">&quot;L&quot;</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> String abbreviation;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//构造器</span></span><br><span class="line">  <span class="keyword">private</span> <span class="title function_">Size</span><span class="params">(String abbreviation)</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">this</span>.abbreviation = abbreviation;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">getAbbreviation</span><span class="params">()</span></span><br><span class="line">  &#123;</span><br><span class="line">  	<span class="keyword">return</span> abbreviation;  </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-7-反射-reflec"><a href="#5-7-反射-reflec" class="headerlink" title="5.7 反射 reflec"></a>5.7 反射 reflec</h3><p>​		能够分析类能力的程序称为反射。</p>
+<p>​		反射机制作用：</p>
+<p>​		1. 在运行时分析类的能力</p>
+<p>​		2.在运行时查看对象，例如，编写一个toString类供所有类使用</p>
+<p>​		3.实现通用的数组操作代码</p>
+<p>​		4.利用Method对象，这个对象类似C++中的函数指针</p>
+<ol>
+<li><p><strong>Class 类</strong></p>
+<p>定义：Java虚拟机为每一个java对象维护它在运行时的类型标识信息，这些信息跟踪着每个对象所属的类，保存这些信息的类被称为Class。</p>
+<hr>
+<p>虚拟机为每个类型管理一个Class对象，<strong>可用 &#x3D;&#x3D; 来比较两个类对象</strong>，例如</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(e.getClass() == Employee.class) ...</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>newInstance()方法：</strong>动态创建一个类的实例，并调用默认无参构造器初始化它，如果这个类没有默认构造器，就会抛出一个异常</p>
+<p>forName()和newInstance() 配合，根据类名创建一个对象</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Object</span> <span class="variable">obj</span> <span class="operator">=</span> Class.forName(<span class="string">&quot;Employee&quot;</span>).newInstance();</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Class类中的<strong>getFields、getMethods、getConstructors方法</strong>分别返回类提供的public域，方法和构造器数组，其中包括超类的公有成员。<strong>安全性低。</strong></p>
+<p>Class类中的<strong>getDeclaredFields、getDeclaredMethods、getDeclaredConstructors方法</strong>分别返回类中声明的全部域、方法和构造器，其中包括私有和受保护成员，但不包括超类的成员。<strong>安全性高</strong></p>
+<hr>
+<p>对公有域、私有域的访问控制，需要调用Field、Method、Constructors对象的setAccessible方法，例如</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Field f = Class.forName(&quot;Employee&quot;).getDeclaredFields(&quot;salary&quot;);</span><br><span class="line">f.setAccessible(true);</span><br></pre></td></tr></table></figure>
+
+<p><strong>获得Class类对象的4种方法：</strong></p>
+<p><strong>方法一：</strong></p>
+<p><strong>Object类中的getClass()方法将会返回一个Class 类型的实例。</strong></p>
+<p>最常用的Class方法是getName，这个方法将返回类的名字。如果类在一个包里，包的名字也作为类名的一部分。</p>
+<p><strong>方法二：</strong></p>
+<p><strong>调用静态方法Class.forName(“classpath”)获得类名对应的Class对象。</strong></p>
+<p>使用此方法最好提供一个异常处理器，因为只有在classname是类名或者接口名时才能执行，否则将抛出CheckedException（已检查异常）。</p>
+<p><strong>方法三：</strong></p>
+<p><strong>如果T是任意的java类型（或void关键字），T.class 可代表匹配的类对象</strong></p>
+<h5 id="方法四："><a href="#方法四：" class="headerlink" title="方法四："></a>方法四：</h5><p><strong>通过类加载器<code>xxxClassLoader.loadClass()</code>传入类路径获取，通过类加载器获取 Class 对象不会进行初始化，意味着不进行包括初始化等一些列步骤，静态块和静态对象不会得到执行</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//方法一</span></span><br><span class="line">e.getClass().getName();</span><br><span class="line"><span class="comment">//方法二</span></span><br><span class="line"><span class="type">Class</span> <span class="variable">cl</span> <span class="operator">=</span> Class.forName(<span class="string">&quot;cn.javaguide.TargetObject&quot;</span>);</span><br><span class="line"><span class="comment">//方法三</span></span><br><span class="line">e.class</span><br><span class="line"><span class="comment">//方法四</span></span><br><span class="line"><span class="type">Class</span> <span class="variable">clazz</span> <span class="operator">=</span> ClassLoader.loadClass(<span class="string">&quot;cn.javaguide.TargetObject&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p><strong>调用任意方法</strong></p>
+<p>类似利用Field类的get方法查看对象域的过程，在Method方法中有一个invoke方法，它允许调用包装在当前Method对象中的方法。</p>
+<p>getMethod方法的签名：Method getMethod(String name, Class… parameterTypes)</p>
+<p>invoke方法的签名: Object invoke(Object obj, Object… args)</p>
+</li>
+<li><h5 id="继承的设计技巧"><a href="#继承的设计技巧" class="headerlink" title="继承的设计技巧"></a>继承的设计技巧</h5></li>
+</ol>
+<p>​	1.将公共操作和域放在超类</p>
+<p>​	2.不要使用受保护的域</p>
+<p>​	3.使用继承实现“is-a”关系</p>
+<p>​	4.除非所有继承的方法都有意义，否则不要使用继承</p>
+<p>​	5.在覆盖方法时，不要改变预期的行为</p>
+<p>​	6.使用多态，而非类型信息</p>
+<p>​	7.不要过多地使用反射，这种功能对于编写系统来说极其实用，但是通常不适用于编写应用程序</p>
+<h4 id="框架与反射"><a href="#框架与反射" class="headerlink" title="框架与反射"></a>框架与反射</h4><p>注解本质是一个继承了<code>Annotation</code> 的特殊接口</p>
+<h2 id="CH6-接口、lambda表达式与内部类"><a href="#CH6-接口、lambda表达式与内部类" class="headerlink" title="CH6 接口、lambda表达式与内部类"></a>CH6 接口、lambda表达式与内部类</h2><h3 id="6-1-接口"><a href="#6-1-接口" class="headerlink" title="6.1 接口"></a>6.1 接口</h3><p>​		定义：接口不是类，而是对类的一组需求描述，这些类要遵从接口描述的统一格式进行定义。</p>
+<p>​		要点：</p>
+<p>​		1.接口中所有方法自动被设置为public，所有域被自动设置为public static final，建议不要书写这些多余的关键字</p>
+<p>​		2.在实现接口时，必须把方法声明为public，否则编译器就会把这个方法的访问属性视作包可见性</p>
+<p>​		3.在接口中不能含有实例域，但是可以定义常量	</p>
+<p>​		4.允许在接口中增加静态方法（尽管这有违于将接口作为抽象规范的初衷）</p>
+<p>​		5.可以为接口提供一个默认实现，这个默认方法需要用default修饰符来标记</p>
+<p>​		6.instanceof可以检查一个对象是否继承了某个类，也可以检查一个对象是否实现了某个接口</p>
+<p>​		7.每个类只能继承一个超类，却可以实现多个接口。Java不支持多继承，但支持多实现。接口可以提供多继承的许多好处，同时还能避免多继承带来的使语言变得更复杂或更低效的问题。虽然C++具有多继承特性，但很少有C++程序员适用多继承。</p>
+<p>​		8.解决默认方法冲突的2条原则：</p>
+<p>​				1.超类优先：当超类与接口中的相同签名的默认方法发生冲突时，超类优先</p>
+<p>​				2.接口冲突：当不同接口中的相同默认方法发生冲突时，根据提示手动写代码选择</p>
+<hr>
+<p>隐式参数：是在类的方法中调用了类的实例域。这个被调用的实例域就是隐式参数。在隐式参数的前面加上this，隐式参数就更清晰，this操作符代表的是本类。</p>
+<p>回调（callback）：在某个特定事件发生时应该采取的动作</p>
+<p>lambda表达式：一个可传递的代码块，可以在以后执行一次或多次。特点：延迟执行。</p>
+<p>在lambda表达式中不能引用会变化的变量，不能改变变量的值，不能在lambda表达式中声明与局部变量同名的参数或局部变量。</p>
+<p>（【类型】【参数】，，）-&gt;{</p>
+<p>​		【代码块】</p>
+<p>}</p>
+<p>函数式接口：对于只有一个抽象方法的接口，需要这种接口的对象时，可以提供一个lambda表达式。这种接口称为函数式接口。</p>
+<p>用：：方法引用：</p>
+<p>用：：分隔方法名与对象或类名，主要有3种情况：</p>
+<p>object：：intstanceMethod</p>
+<p>class：：staticMethod</p>
+<p>class：：instanceMethod</p>
+<p>用：：构造器引用：</p>
+<p>java无法构造泛型类型T的的数组，数组构造器引用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//构造Person对象数组</span><br><span class="line">Object[] people = stream.toArray();//得到一个object引用数组</span><br><span class="line">Person[] people = stream.toArray(Person[]::new);</span><br></pre></td></tr></table></figure>
+
+<p>6.4 内部类</p>
+<p>内部类既可以访问自身的数据域，也可以访问创建它的外围类对象的数据域</p>
+<p>（因为内部类的对象总有一个指向创建它的外部类隐式引用）。</p>
+<p>只有内部类可以被声明为私有。</p>
+<p>内部类中声明的所有静态域都必须是final</p>
+<p>内部类不能有static方法，除了静态内部类。</p>
+<p><strong>局部内部类：</strong>在一个方法中定义局部类</p>
+<p>特点：</p>
+<p>可以对外部世界完全地隐藏起来，</p>
+<p><strong>匿名内部类：</strong>没有类名，</p>
+<p>特点：匿名内部类没有构造器。</p>
+<p>通常的语法格式：</p>
+<p>new Supertype（construction parameters）{</p>
+<p>Methods and data</p>
+<p>}</p>
+<p>java中实现事件监听和其他回调：使用匿名内部类、lambda表达式</p>
+<p><strong>静态内部类：</strong>取消内部类对外围类的引用；可以在其中定义静态域、静态方法</p>
+<p>使用场景：不需要内部类引用外围类的对象</p>
+<h4 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h4><p><img src="/public/img/Java1.png" alt="Java异常类层次结构图"></p>
+<p><img src="/public/img/Java2.png" alt="Java异常类层次结构图"></p>
+<p>必须处理受查异常，否则程序无法运行</p>
+<p>可以不处理非受查异常</p>
+<h5 id="try-catch-finally"><a href="#try-catch-finally" class="headerlink" title="try-catch-finally"></a>try-catch-finally</h5><ul>
+<li><strong><code>try</code>块：</strong> 用于捕获异常。其后可接零个或多个 <code>catch</code> 块，如果没有 <code>catch</code> 块，则必须跟一个 <code>finally</code> 块。</li>
+<li><strong><code>catch</code>块：</strong> 用于处理 try 捕获到的异常。</li>
+<li><strong><code>finally</code> 块：</strong> 无论是否捕获或处理异常，<code>finally</code> 块里的语句都会被执行。当在 <code>try</code> 块或 <code>catch</code> 块中遇到 <code>return</code> 语句时，<code>finally</code> 语句块将在方法返回之前被执行。</li>
+</ul>
+<p><strong>在以下 3 种特殊情况下，<code>finally</code> 块不会被执行：</strong></p>
+<ol>
+<li>在 <code>try</code> 或 <code>finally</code>块中用了 <code>System.exit(int)</code>退出程序。但是，如果 <code>System.exit(int)</code> 在异常语句之后，<code>finally</code> 还是会被执行</li>
+<li>程序所在的线程死亡。</li>
+<li>关闭 CPU。</li>
+</ol>
+<p><strong>注意：</strong> 当 try 语句和 finally 语句中都有 return 语句时，在方法返回之前，finally 语句的内容将被执行，并且 finally 语句的返回值将会覆盖原始的返回值。</p>
+<h4 id="引用拷贝、浅拷贝、深拷贝"><a href="#引用拷贝、浅拷贝、深拷贝" class="headerlink" title="引用拷贝、浅拷贝、深拷贝"></a>引用拷贝、浅拷贝、深拷贝</h4><p>![截屏2022-01-17 下午2.32.33](&#x2F;Users&#x2F;xieyanlin&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;截屏2022-01-17 下午2.32.33.png)</p>
+<p>引用拷贝：没有在内存中创建新对象，而是直接创建一个引用指向被拷贝对象</p>
+<p>浅拷贝：在内存中创建了新对象，但对原对象的成员变量没有完全在内存中开辟新空间，对于原对象的基础类型变量开辟了新空间，但对原对象的引用类型没有开辟新空间，只是创建了一个新的引用</p>
+<p>深拷贝：在内存中创建了新对象，并对其所有类型包括引用类型的成员变量在内存中都开辟了新空间</p>
+<h4 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h4><p>如果我们需要持久化 Java 对象比如将 Java 对象保存在文件中，或者在网络传输 Java 对象，这些场景都需要用到序列化。</p>
+<ul>
+<li><strong>序列化</strong>： 将数据结构或对象转换成二进制字节流的过程</li>
+<li><strong>反序列化</strong>：将在序列化过程中所生成的二进制字节流转换成数据结构或者对象的过程</li>
+</ul>
+<p><strong>序列化的主要目的是通过网络传输对象或者说是将对象存储到文件系统、数据库、内存中。</strong></p>
+<p><img src="/public/img/xlh.png" alt="序列化"></p>
+<h4 id="transient-关键字"><a href="#transient-关键字" class="headerlink" title="transient 关键字"></a><code>transient</code> 关键字</h4><p>对于不想进行序列化的变量，使用 <code>transient</code> 关键字修饰。</p>
+<p><code>transient</code> 关键字的作用是：阻止实例中那些用此关键字修饰的的变量序列化；当对象被反序列化时，被 <code>transient</code> 修饰的变量值不会被持久化和恢复。</p>
+<p>关于 <code>transient</code> 还有几点注意：</p>
+<ul>
+<li><code>transient</code> 只能修饰变量，不能修饰类和方法。</li>
+<li><code>transient</code> 修饰的变量，在反序列化后变量值将会被置成类型的默认值。例如，如果是修饰 <code>int</code> 类型，那么反序列后结果就是 <code>0</code>。</li>
+<li><code>static</code> 变量因为不属于任何对象(Object)，所以无论有没有 <code>transient</code> 关键字修饰，均不会被序列化。</li>
+</ul>
+<h4 id="获取用键盘输入常用的两种方法"><a href="#获取用键盘输入常用的两种方法" class="headerlink" title="获取用键盘输入常用的两种方法"></a>获取用键盘输入常用的两种方法</h4><p>方法 1：通过 <code>Scanner</code></p>
+<p>方法 2：通过 <code>BufferedReader</code></p>
+<h4 id="Java-中-IO-流分为几种"><a href="#Java-中-IO-流分为几种" class="headerlink" title="Java 中 IO 流分为几种?"></a>Java 中 IO 流分为几种?</h4><ul>
+<li>按照流的流向分，可以分为输入流和输出流；</li>
+<li>按照操作单元划分，可以划分为字节流和字符流；</li>
+<li>按照流的角色划分为节点流和处理流。</li>
+</ul>
+<p>按操作方式分类结构图：</p>
+<p><img src="/public/img/IOfs2.png" alt="IO-操作方式分类"></p>
+<p>按操作对象分类结构图：</p>
+<p><img src="/public/img/IO1.png" alt="IO-操作对象分类"></p>
+<h4 id="字节流和字符流"><a href="#字节流和字符流" class="headerlink" title="字节流和字符流"></a>字节流和字符流</h4><p>音频文件、图片等媒体文件用字节流比较好，字符的话使用字符流比较好</p>
+<p>中文在 <code>utf-8</code> 编码下占用了 <code>3</code> 个字节</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://this1sirene.me">Irene Heish</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://this1sirene.me/2022/06/09/Java%E5%9F%BA%E7%A1%80%EF%BC%9AJava%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B71%E7%AC%94%E8%AE%B0/">http://this1sirene.me/2022/06/09/Java%E5%9F%BA%E7%A1%80%EF%BC%9AJava%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B71%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%BB%A3%E7%A0%81/">代码</a></div><div class="post_share"><div class="social-share" data-image="/img/Java1.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/ShareJS/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/ShareJS/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/06/09/spring%E6%A1%86%E6%9E%B6%E6%B3%A8%E8%A7%A3%E8%AF%A6%E8%A7%A3/"><img class="prev-cover" src="/img/spring.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">spring框架注解详解</div></div></a></div><div class="next-post pull-right"><a href="/2022/06/09/UML%E7%B1%BB%E5%9B%BE%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0/"><img class="next-cover" src="/img/uml.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">UML类图快速学习</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2022/06/09/spring%E6%A1%86%E6%9E%B6%E6%B3%A8%E8%A7%A3%E8%AF%A6%E8%A7%A3/" title="spring框架注解详解"><img class="cover" src="/img/spring.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-09</div><div class="title">spring框架注解详解</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java%E5%9F%BA%E7%A1%80"><span class="toc-text">java基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CH5-%E7%BB%A7%E6%89%BF"><span class="toc-text">CH5 继承</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E7%B1%BB%E3%80%81%E8%B6%85%E7%B1%BB%E5%92%8C%E5%AD%90%E7%B1%BB"><span class="toc-text">5.1 类、超类和子类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%EF%BC%88reflection%EF%BC%89%EF%BC%9A%E5%9C%A8%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%9C%9F%E9%97%B4%E5%8F%91%E7%8E%B0%E5%8F%91%E7%8E%B0%E6%9B%B4%E5%A4%9A%E7%9A%84%E7%B1%BB%E5%8F%8A%E5%85%B6%E5%B1%9E%E6%80%A7%E7%9A%84%E8%83%BD%E5%8A%9B%E3%80%82"><span class="toc-text">反射（reflection）：在程序运行期间发现发现更多的类及其属性的能力。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97-this-%E5%92%8C-super"><span class="toc-text">关键字 this 和 super</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#this%E7%94%A8%E6%B3%95%EF%BC%9A"><span class="toc-text">this用法：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#super%E7%94%A8%E6%B3%95%EF%BC%9A"><span class="toc-text">super用法：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">强制类型转换</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#java%E4%B8%8D%E6%94%AF%E6%8C%81%E5%A4%9A%E7%BB%A7%E6%89%BF%EF%BC%8C%E6%94%AF%E6%8C%81%E5%A4%9A%E5%B1%82%E7%BB%A7%E6%89%BF"><span class="toc-text">java不支持多继承，支持多层继承</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#override-%E8%A6%86%E7%9B%96-x2F-%E9%87%8D%E5%86%99-%F0%9F%86%9A-overload-%E9%87%8D%E8%BD%BD"><span class="toc-text">override 覆盖&#x2F;重写 🆚 overload 重载</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97-final"><span class="toc-text">关键字 final</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-Object%EF%BC%9A%E6%89%80%E6%9C%89%E7%B1%BB%E7%9A%84%E8%B6%85%E7%B1%BB"><span class="toc-text">5.2 Object：所有类的超类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#equals%E6%96%B9%E6%B3%95"><span class="toc-text">equals方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#hashCode%E6%96%B9%E6%B3%95"><span class="toc-text">hashCode方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#toString-%E6%96%B9%E6%B3%95"><span class="toc-text">toString 方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E6%B3%9B%E5%9E%8B%E6%95%B0%E7%BB%84%E5%88%97%E8%A1%A8-ArrayList-lt-gt"><span class="toc-text">5.3 泛型数组列表 ArrayList&lt;&gt;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E5%AF%B9%E8%B1%A1%E5%8C%85%E8%A3%85%E5%99%A8%E4%B8%8E%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1"><span class="toc-text">5.4 对象包装器与自动装箱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5%E5%8F%82%E6%95%B0%E6%95%B0%E9%87%8F%E5%8F%AF%E5%8F%98%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">5.5参数数量可变的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-%E6%9E%9A%E4%B8%BE%E7%B1%BB-enum"><span class="toc-text">5.6 枚举类 enum</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-7-%E5%8F%8D%E5%B0%84-reflec"><span class="toc-text">5.7 反射 reflec</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E5%9B%9B%EF%BC%9A"><span class="toc-text">方法四：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%8A%80%E5%B7%A7"><span class="toc-text">继承的设计技巧</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%86%E6%9E%B6%E4%B8%8E%E5%8F%8D%E5%B0%84"><span class="toc-text">框架与反射</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CH6-%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-text">CH6 接口、lambda表达式与内部类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E6%8E%A5%E5%8F%A3"><span class="toc-text">6.1 接口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8"><span class="toc-text">异常</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#try-catch-finally"><span class="toc-text">try-catch-finally</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-text">引用拷贝、浅拷贝、深拷贝</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">序列化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#transient-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">transient 关键字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%94%A8%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="toc-text">获取用键盘输入常用的两种方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java-%E4%B8%AD-IO-%E6%B5%81%E5%88%86%E4%B8%BA%E5%87%A0%E7%A7%8D"><span class="toc-text">Java 中 IO 流分为几种?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E8%8A%82%E6%B5%81%E5%92%8C%E5%AD%97%E7%AC%A6%E6%B5%81"><span class="toc-text">字节流和字符流</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('/img/Java1.jpeg')"><div id="footer-wrap"><div class="copyright">&copy;2022 By Irene Heish</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
