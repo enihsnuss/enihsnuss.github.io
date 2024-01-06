@@ -1,0 +1,216 @@
+<!DOCTYPE html><html lang="zh_CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>UML类图快速学习 | 永远的自留地</title><meta name="author" content="Irene Hsieh"><meta name="copyright" content="Irene Hsieh"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="UML（Unified Modeling Language）类图概览UML统一建模语言，面向对象设计。 类图主要是用来显示系统中的类、接口以及它们之间的静态结构和关系的一种静态模型。 推荐使用processon作图。 UML 基本元素三个基本模块：事务，关系，图。 四种事务 结构事务：类，接口，协作，用例，活动类，组件，节点。 行为事务：交互，状态机。 分组事务：包 注释事务：注释。  六种关系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UML类图快速学习">
+<meta property="og:url" content="http://this1sirene.me/2022/06/09/UML%E7%B1%BB%E5%9B%BE%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="永远的自留地">
+<meta property="og:description" content="UML（Unified Modeling Language）类图概览UML统一建模语言，面向对象设计。 类图主要是用来显示系统中的类、接口以及它们之间的静态结构和关系的一种静态模型。 推荐使用processon作图。 UML 基本元素三个基本模块：事务，关系，图。 四种事务 结构事务：类，接口，协作，用例，活动类，组件，节点。 行为事务：交互，状态机。 分组事务：包 注释事务：注释。  六种关系">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://this1sirene.me/img/uml.png">
+<meta property="article:published_time" content="2022-06-09T07:02:54.000Z">
+<meta property="article:modified_time" content="2024-01-06T16:02:39.045Z">
+<meta property="article:author" content="Irene Hsieh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://this1sirene.me/img/uml.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://this1sirene.me/2022/06/09/UML%E7%B1%BB%E5%9B%BE%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'UML类图快速学习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2024-01-07 00:02:39'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="永远的自留地" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">18</div></a><a href="/null/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/uml.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">永远的自留地</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">UML类图快速学习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-06-09T07:02:54.000Z" title="Created 2022-06-09 15:02:54">2022-06-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-01-06T16:02:39.045Z" title="Updated 2024-01-07 00:02:39">2024-01-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="UML类图快速学习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="UML（Unified-Modeling-Language）类图概览"><a href="#UML（Unified-Modeling-Language）类图概览" class="headerlink" title="UML（Unified Modeling Language）类图概览"></a>UML（Unified Modeling Language）类图概览</h1><p>UML统一建模语言，面向对象设计。</p>
+<p>类图主要是用来显示系统中的类、接口以及它们之间的静态结构和关系的一种静态模型。</p>
+<p>推荐使用processon作图。</p>
+<h2 id="UML-基本元素"><a href="#UML-基本元素" class="headerlink" title="UML 基本元素"></a>UML 基本元素</h2><h3 id="三个基本模块："><a href="#三个基本模块：" class="headerlink" title="三个基本模块："></a>三个基本模块：</h3><p>事务，关系，图。</p>
+<h3 id="四种事务"><a href="#四种事务" class="headerlink" title="四种事务"></a>四种事务</h3><ol>
+<li>结构事务：类，接口，协作，用例，活动类，组件，节点。</li>
+<li>行为事务：交互，状态机。</li>
+<li>分组事务：包</li>
+<li>注释事务：注释。</li>
+</ol>
+<h3 id="六种关系"><a href="#六种关系" class="headerlink" title="六种关系"></a>六种关系</h3><ol>
+<li>依赖</li>
+<li>泛化</li>
+<li>实现</li>
+<li>关联</li>
+<li>聚合</li>
+<li>组合</li>
+</ol>
+<h3 id="十种图"><a href="#十种图" class="headerlink" title="十种图"></a>十种图</h3><ol>
+<li>用例图</li>
+<li>类图</li>
+<li>对象图</li>
+<li>包图</li>
+<li>部署图</li>
+<li>活动图</li>
+<li>状态图</li>
+<li>序列图</li>
+<li>协作图</li>
+<li>组件图</li>
+</ol>
+<h3 id="类图画法"><a href="#类图画法" class="headerlink" title="类图画法"></a>类图画法</h3><h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/1/14/160f4063c67cbc65~tplv-t2oaga2asx-watermark.awebp" alt="2.jpg"></p>
+<h4 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h4><p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/1/14/160f4063c88a6c7c~tplv-t2oaga2asx-watermark.awebp" alt="3.jpg"></p>
+<h4 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h4><h5 id="泛化（Generalization）："><a href="#泛化（Generalization）：" class="headerlink" title="泛化（Generalization）："></a>泛化（Generalization）：</h5><p>【箭头指向】：带三角箭头的实线，箭头指向<strong>父类（非抽象类）</strong></p>
+<h5 id="实现（Realization）："><a href="#实现（Realization）：" class="headerlink" title="实现（Realization）："></a>实现（Realization）：</h5><p>【箭头指向】：带三角箭头的虚线，箭头指向<strong>接口等抽象类</strong></p>
+<h5 id="关联（Association-："><a href="#关联（Association-：" class="headerlink" title="关联（Association)："></a>关联（Association)：</h5><p>【关联关系】：是一种拥有的关系</p>
+<p>【代码体现】：成员变量 </p>
+<p>【箭头及指向】：带普通箭头的实心线，指向被拥有者</p>
+<h5 id="依赖-Dependency-："><a href="#依赖-Dependency-：" class="headerlink" title="依赖(Dependency) ："></a>依赖(Dependency) ：</h5><p>【依赖关系】：是一种使用的关系，即一个类的实现需要另一个类的协助，所以要尽量不使用双向的互相依赖。</p>
+<p>【代码表现】：局部变量、方法的参数或者对静态方法的调用。</p>
+<p>【箭头及指向】：带箭头的虚线，指向被使用者</p>
+<h5 id="聚合（Aggregation）："><a href="#聚合（Aggregation）：" class="headerlink" title="聚合（Aggregation）："></a>聚合（Aggregation）：</h5><p>【聚合关系】：是整体与部分的关系，且部分可以离开整体而单独存在。关联和聚合在语法上无法区分，必须考察具体的逻辑关系。 </p>
+<p>【代码体现】：成员变量 </p>
+<p>【箭头及指向】：带空心菱形的实心线，菱形指向整体</p>
+<h5 id="组合-Composition-："><a href="#组合-Composition-：" class="headerlink" title="组合(Composition)："></a>组合(Composition)：</h5><p>【组合关系】：是整体与部分的关系，但部分不能离开整体而单独存在。</p>
+<p>【代码体现】：成员变量    </p>
+<p>【箭头及指向】：带实心菱形的实线，菱形指向整体。</p>
+<h3 id="领域UML类图-vs-设计UML类图"><a href="#领域UML类图-vs-设计UML类图" class="headerlink" title="领域UML类图 vs 设计UML类图"></a>领域UML类图 vs 设计UML类图</h3><ul>
+<li>领域UML类图表示系统的静态领域结构，其中的类不与最终程序中的类对应。</li>
+<li>设计UML类图表示系统的技术架构，是程序员的编码依据，其中的类与系统中的类对应。分析阶段由分析师绘制领域UML类图，设计阶段由设计师绘制实现UML类图。</li>
+</ul>
+<p>在系统分析与设计阶段，类通常可以分为三种，分别是实体类(Entity Class)、控制类(Control Class)和边界类(Boundary Class)，下面对这三种类加以简要说明：<br> (1) 实体类：实体类对应系统需求中的每个实体，它们通常需要保存在永久存储体中，一般使用数据库表或文件来记录，实体类既包括存储和传递数据的类，还包括操作数据的类。实体类来源于需求说明中的名词，如学生、商品等。<br> (2) 控制类：控制类用于体现应用程序的执行逻辑，提供相应的业务操作，将控制类抽象出来可以降低界面和数据库之间的耦合度。控制类一般是由动宾结构的短语（动词+名词）转化来的名词，如增加商品对应有一个商品增加类，注册对应有一个用户注册类等<br> (3) 边界类：边界类用于对外部用户与系统之间的交互对象进行抽象，主要包括界面类，如对话框、窗口、菜单等。</p>
+<p>在面向对象分析和设计的初级阶段，通常首先识别出实体类，绘制初始类图，此时的类图也可称为领域模型，包括实体类及其它们之间的相互关系。领域UML类图中类的属性与操作仅关注与业务相关的部分，实现UML类图中的属性与操作要包括最终需要实现的全部方法与操作。</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b8cebdb301b9">此链接有实例</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://this1sirene.me">Irene Hsieh</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://this1sirene.me/2022/06/09/UML%E7%B1%BB%E5%9B%BE%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0/">http://this1sirene.me/2022/06/09/UML%E7%B1%BB%E5%9B%BE%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post_share"><div class="social-share" data-image="/img/uml.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/ShareJS/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/ShareJS/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/06/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><img class="prev-cover" src="/img/rose.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">设计模式</div></div></a></div><div class="next-post pull-right"><a href="/2022/06/09/%E8%AF%BB%E6%9B%BC%E6%98%86%E3%80%8A%E7%BB%8F%E6%B5%8E%E5%AD%A6%E5%8E%9F%E7%90%86%E4%B9%8B%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%E3%80%8B/"><img class="next-cover" src="/img/wg.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">读曼昆《经济学原理之微观经济学》</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#UML%EF%BC%88Unified-Modeling-Language%EF%BC%89%E7%B1%BB%E5%9B%BE%E6%A6%82%E8%A7%88"><span class="toc-text">UML（Unified Modeling Language）类图概览</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#UML-%E5%9F%BA%E6%9C%AC%E5%85%83%E7%B4%A0"><span class="toc-text">UML 基本元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E4%B8%AA%E5%9F%BA%E6%9C%AC%E6%A8%A1%E5%9D%97%EF%BC%9A"><span class="toc-text">三个基本模块：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E7%A7%8D%E4%BA%8B%E5%8A%A1"><span class="toc-text">四种事务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD%E7%A7%8D%E5%85%B3%E7%B3%BB"><span class="toc-text">六种关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E7%A7%8D%E5%9B%BE"><span class="toc-text">十种图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9B%BE%E7%94%BB%E6%B3%95"><span class="toc-text">类图画法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B1%BB"><span class="toc-text">类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3"><span class="toc-text">接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB"><span class="toc-text">关系</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%9B%E5%8C%96%EF%BC%88Generalization%EF%BC%89%EF%BC%9A"><span class="toc-text">泛化（Generalization）：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%EF%BC%88Realization%EF%BC%89%EF%BC%9A"><span class="toc-text">实现（Realization）：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B3%E8%81%94%EF%BC%88Association-%EF%BC%9A"><span class="toc-text">关联（Association)：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96-Dependency-%EF%BC%9A"><span class="toc-text">依赖(Dependency) ：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%81%9A%E5%90%88%EF%BC%88Aggregation%EF%BC%89%EF%BC%9A"><span class="toc-text">聚合（Aggregation）：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BB%84%E5%90%88-Composition-%EF%BC%9A"><span class="toc-text">组合(Composition)：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%86%E5%9F%9FUML%E7%B1%BB%E5%9B%BE-vs-%E8%AE%BE%E8%AE%A1UML%E7%B1%BB%E5%9B%BE"><span class="toc-text">领域UML类图 vs 设计UML类图</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('/img/uml.png')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Irene Hsieh</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
