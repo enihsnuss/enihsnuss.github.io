@@ -147,7 +147,7 @@
 <h4 id="RestController"><a href="#RestController" class="headerlink" title="@RestController"></a>@RestController</h4><p>相当于@Controller+@ResponseBody两个注解的结合，返回json数据不需要在方法前面加@ResponseBody注解了，但使用@RestController这个注解，就不能返回jsp,html页面，视图解析器无法解析jsp,html页面</p>
 <h4 id="Service-（注入dao层）"><a href="#Service-（注入dao层）" class="headerlink" title="@Service （注入dao层）"></a>@Service （注入dao层）</h4><p>说明此类是个服务类，标注在实现类上，<code>@Service</code>是把<code>spring</code>容器中的<code>bean</code>进行实例化，也就是等同于<code>new</code>操作</p>
 <h4 id="Repository-（实现dao访问）"><a href="#Repository-（实现dao访问）" class="headerlink" title="@Repository （实现dao访问）"></a>@Repository <strong>（实现dao访问）</strong></h4><p>说明此类是个数据访问层类，</p>
-<h4 id="Component"><a href="#Component" class="headerlink" title="@Component"></a>@Component</h4><p>标注一个类为Spring容器的Bean，（把普通pojo实例化到spring容器中，相当于配置文件中的<bean id="" class=""/>）</p>
+<h4 id="Component"><a href="#Component" class="headerlink" title="@Component"></a>@Component</h4><p>标注一个类为Spring容器的Bean，（把普通pojo实例化到spring容器中，相当于配置文件中的<bean id class>）</bean></p>
 <h4 id="RequestMapping"><a href="#RequestMapping" class="headerlink" title="@RequestMapping"></a>@RequestMapping</h4><p>用于处理请求地址映射，可用于类或方法上，用于类上，表示类中的所有响应请求的方法都是以该地址作为父路径，不用于类上则所有的路径都是绝对路径</p>
 <h5 id="GetMapping"><a href="#GetMapping" class="headerlink" title="@GetMapping"></a>@GetMapping</h5><p>​	用于将HTTP get请求映射到特定处理程序</p>
 <p>​	@GetMapping &#x3D; @RequestMapping(method &#x3D; RequestMethod.GET)</p>
