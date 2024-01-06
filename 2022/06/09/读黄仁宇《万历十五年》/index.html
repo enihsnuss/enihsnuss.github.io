@@ -205,8 +205,7 @@
 </li>
 <li><p>直到后来，人们才知道元辅的坐轿要三十二个轿伕扛抬，内分卧室及客室，还有小僮两名在内伺候。随从的侍卫中，引人注目的是一队鸟铳手，乃是总兵戚继光所委派，而鸟铳在当日尚属时髦的火器。张居正行经各地，不仅地方官一律郊迎，而且当地的藩王也打破传统出府迎送，和元辅张先生行宾主之礼。</p>
 </li>
-<li><p>更令人惊讶的是，北京张宅刚刚修造完毕，湖广的江陵立即出现了一座规模相同的张宅，主其事者是锦衣卫的一个庞姓军官，建造的费用不消说来自官库。</p>
-</li>
+<li>更令人惊讶的是，北京张宅刚刚修造完毕，湖广的江陵立即出现了一座规模相同的张宅，主其事者是锦衣卫的一个庞姓军官，建造的费用不消说来自官库。</li>
 <li><p>上述情形，也许可以推说为下人蒙蔽；然而他在私人函件中屡次提到他亲信的文官曾向他赠送贵重的“礼物”，包括现金和田地，这就不仅使他无法自解，也使对他同情的人不能置辩。<br><em>他妈的，回老家奔丧做32人抬的大轿子，还分卧室和客厅，足见骄奢</em></p>
 </li>
 <li><p>太后以异常的悲痛责备自己没有尽到对皇帝的督导教育，她脱去簪环，准备祭告祖庙，废掉这个失德之君而代之以皇弟潞王。年轻的皇帝跪下恳请母后开恩。直至他跪了很久以后，太后才答应给他以自新的机会，并且吩咐他和张先生商量，订出切实的改过方案。<br><em>妈耶，皇太后居然还可以废帝</em></p>
@@ -221,7 +220,7 @@
 </li>
 <li><p>张居正死后被参，家产籍没，子弟流放，<br><em>张居正活该！！！</em></p>
 </li>
-<li><p>文官绝大多数由科举出身。最低级的考试合格者称为生员；生员应三年一度的乡试，合格者称为举人；举人参加在北京的会试殿试，合格者称为进士。举人得授九品官职；进士得授七品官职。此外尚有监生、贡生等名称，也都可以经过一定的途径得到官职。总之，科举制度以各种考试的办法选拔人才，考来考去，全国的读书人被网罗而应试的总数当在百万以上，其中文理通达的即可由此而登仕途。<br><em>小结：乡试–&gt;会试–&gt;殿试,生员–&gt;举人（授9品官职）–&gt;进士（授7品官职）</em></p>
+<li><p>文官绝大多数由科举出身。最低级的考试合格者称为生员；生员应三年一度的乡试，合格者称为举人；举人参加在北京的会试殿试，合格者称为进士。举人得授九品官职；进士得授七品官职。此外尚有监生、贡生等名称，也都可以经过一定的途径得到官职。总之，科举制度以各种考试的办法选拔人才，考来考去，全国的读书人被网罗而应试的总数当在百万以上，其中文理通达的即可由此而登仕途。<br><em>小结：乡试—&gt;会试—&gt;殿试,生员—&gt;举人（授9品官职）—&gt;进士（授7品官职）</em></p>
 </li>
 <li><p>首辅申时行虽然提倡诚意，他对理想与事实的脱节，却有一番深切的认识。他把人们口头上公认的理想称为“阳”，而把人们不能告人的私欲称为“阴”。调和阴阳是一件复杂的工作，所以他公开表示，他所期望的不外是“不肖者犹知忌惮，而贤者有所依归”。达到这个低标准，已经需要一番奋斗，如果把目标定得更高，那就不是实事求是了。<br><em>明白人！</em></p>
 </li>
@@ -263,4 +262,49 @@ function panguInit () {
   }
 }
 
-document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

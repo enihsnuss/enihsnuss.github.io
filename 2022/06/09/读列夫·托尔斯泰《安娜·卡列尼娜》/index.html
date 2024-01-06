@@ -157,11 +157,11 @@
 </li>
 <li><p>但凡小孩在场的时候，总在弗龙斯基心里引起一种异样的无缘无故的厌恶心情，那是他最近常常体验到的。这小孩在场的时候，在弗龙斯基和安娜两人心里都唤起这样一种心情，好比一个航海家根据罗盘看出他急速航行的方向偏离了正确的航向，但要停止航行却又非他力所能及，而且随时随刻都在载着他偏离得越来越远了，而要自己承认误入歧途就等于承认自己要灭亡了。</p>
 </li>
-<li><p>“只贪图功名，只想升官，这就是他灵魂里所有的东西，”她想；“至于高尚理想，文化爱好，宗教热忱，这些不过是飞黄腾达的敲门砖罢了。”—-安娜描述卡列宁</p>
+<li><p>“只贪图功名，只想升官，这就是他灵魂里所有的东西，”她想；“至于高尚理想，文化爱好，宗教热忱，这些不过是飞黄腾达的敲门砖罢了。”——安娜描述卡列宁</p>
 </li>
 <li><p>“我从头说起：你和一个比你大二十岁的男子结了婚。你没有爱情，也不懂大二十岁的男子结了婚。你没有爱情，也不懂爱情就和他结了婚。让我们承认，这是一个错误。”</p>
 </li>
-<li><p>但是任何一个感到不满的人，要他不归咎于别人，特别是和他最亲近的人，是很难的。而列文模糊地感觉到，虽然不怪她本人（什么事都不能怪她），但是要怪她所受的那种太浅薄无聊的教育。—-列文描述基蒂</p>
+<li><p>但是任何一个感到不满的人，要他不归咎于别人，特别是和他最亲近的人，是很难的。而列文模糊地感觉到，虽然不怪她本人（什么事都不能怪她），但是要怪她所受的那种太浅薄无聊的教育。——列文描述基蒂</p>
 </li>
 <li><p>在这方面，他的情形和一般人所说的醉汉的情形一样：第一杯像芒刺在喉，第二杯像苍鹰一样飞掠而过，喝过第三杯就像小鸟一样畅行无阻了。</p>
 </li>
@@ -207,4 +207,49 @@ function panguInit () {
   }
 }
 
-document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

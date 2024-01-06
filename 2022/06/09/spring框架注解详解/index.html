@@ -148,19 +148,19 @@
 <h4 id="Repository-（实现dao访问）"><a href="#Repository-（实现dao访问）" class="headerlink" title="@Repository （实现dao访问）"></a>@Repository <strong>（实现dao访问）</strong></h4><p>说明此类是个数据访问层类，</p>
 <h4 id="Component"><a href="#Component" class="headerlink" title="@Component"></a>@Component</h4><p>标注一个类为Spring容器的Bean，（把普通pojo实例化到spring容器中，相当于配置文件中的<bean id class>）</bean></p>
 <h4 id="RequestMapping"><a href="#RequestMapping" class="headerlink" title="@RequestMapping"></a>@RequestMapping</h4><p>用于处理请求地址映射，可用于类或方法上，用于类上，表示类中的所有响应请求的方法都是以该地址作为父路径，不用于类上则所有的路径都是绝对路径</p>
-<h5 id="GetMapping"><a href="#GetMapping" class="headerlink" title="@GetMapping"></a>@GetMapping</h5><p>​	用于将HTTP get请求映射到特定处理程序</p>
-<p>​	@GetMapping &#x3D; @RequestMapping(method &#x3D; RequestMethod.GET)</p>
-<h5 id="PostMapping"><a href="#PostMapping" class="headerlink" title="@PostMapping"></a>@PostMapping</h5><p>​	用于将HTTP post请求映射到特定处理程序</p>
-<p>​	@PostMapping &#x3D; @RequestMapping(method &#x3D; RequestMethod.POST)</p>
+<h5 id="GetMapping"><a href="#GetMapping" class="headerlink" title="@GetMapping"></a>@GetMapping</h5><p>​    用于将HTTP get请求映射到特定处理程序</p>
+<p>​    @GetMapping = @RequestMapping(method = RequestMethod.GET)</p>
+<h5 id="PostMapping"><a href="#PostMapping" class="headerlink" title="@PostMapping"></a>@PostMapping</h5><p>​    用于将HTTP post请求映射到特定处理程序</p>
+<p>​    @PostMapping = @RequestMapping(method = RequestMethod.POST)</p>
 <h4 id="Autowired"><a href="#Autowired" class="headerlink" title="@Autowired"></a>@Autowired</h4><p>是spring的注解，@resource是java的注解</p>
 <p>如果更换ioc容器，前者用不了</p>
-<p>可以对成员变量、方法和构造函数进行标注，来完成自动装配&#x2F;依赖注入的工作，@Autowired是根据类型type进行自动装配&#x2F;注入的</p>
-<p><code>@Qualifier</code>可以出现任何<code>@Autowired</code>能够出现的地方，与之配套使用。直接标注在<code>@Autowired</code>注入的Bean上，为其明确指定注入某个。Bean@Qualifier(value&#x3D;”xxx”)</p>
+<p>可以对成员变量、方法和构造函数进行标注，来完成自动装配/依赖注入的工作，@Autowired是根据类型type进行自动装配/注入的</p>
+<p><code>@Qualifier</code>可以出现任何<code>@Autowired</code>能够出现的地方，与之配套使用。直接标注在<code>@Autowired</code>注入的Bean上，为其明确指定注入某个。Bean@Qualifier(value=”xxx”)</p>
 <h4 id="Resource"><a href="#Resource" class="headerlink" title="@Resource"></a>@Resource</h4><p>用来实现依赖注入，默认按byName自动注入</p>
 <h4 id="ResponseBody"><a href="#ResponseBody" class="headerlink" title="@ResponseBody"></a>@ResponseBody</h4><p>ResponseBody注解的作用是将controller的方法返回的对象 通过适当的转换器 转换为指定的格式之后，写入到response对象的body区（响应体中），通常用来返回JSON数据。</p>
 <p>需要注意，在使用此注解之后不会再走视图处理器，而是直接将数据写入到输入流中，它的效果等同于通过response对象输出指定格式的数据。</p>
 <h4 id="RequestParam-“”"><a href="#RequestParam-“”" class="headerlink" title="@RequestParam(“”)"></a>@RequestParam(“”)</h4><p>在controller层@requestMapping结合使用，@RequestParam注解的 value 属性值必须对应上html表单中的元素name，否则直接报错400，因为<code>required</code> 属性默认为<code>true</code> ，不写将会使用默认值；</p>
-<p>@RequestParam<code> 注解加上</code>required&#x3D;false<code> ，尽管没对应上然而不会报错，而是获取值为</code>null；</p>
+<p>@RequestParam<code>注解加上</code>required=false<code>，尽管没对应上然而不会报错，而是获取值为</code>null；</p>
 <p>若不使用@RequestParam注解，直接接收，则要求controller方法中的参数名称要跟form中name名称一致，使用该注解只是方便随意取参数名称，不过value属性还是要与name一致。</p>
 <h4 id="mybatis中-param-“”"><a href="#mybatis中-param-“”" class="headerlink" title="mybatis中@param(“”)"></a>mybatis中@param(“”)</h4><p>在dao、mapper层与@Repository结合使用，传递单个参数时不用，传递多个参数时最好使用，都不用也可以嘻嘻</p>
 <h5 id="mybatis-xml文件中parameterType、resultType和resultMap"><a href="#mybatis-xml文件中parameterType、resultType和resultMap" class="headerlink" title="mybatis xml文件中parameterType、resultType和resultMap"></a>mybatis xml文件中parameterType、resultType和resultMap</h5><p>resultType属于自动映射到javabean，而resultMap是手动映射到Javabean的，其中简单的映射关系可以使用resultType，<strong>复杂映射关系的推荐使用resultMap</strong>。使用resultMap需要先在mapper.xml中定义resultMap。而resultType则无需定义。</p>
@@ -186,4 +186,49 @@ function panguInit () {
   }
 }
 
-document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
