@@ -11,15 +11,6 @@
   </url>
   
   <url>
-    <loc>http://this1sirene.me/2024/01/06/baichi/</loc>
-    
-    <lastmod>2024-01-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://this1sirene.me/2022/06/09/%E3%80%8A%E7%88%B1%E6%AD%BB%E6%9C%BA%E3%80%8B%E7%9B%98%E7%82%B9%E6%9C%AC%E5%AD%A3%E6%88%91%E6%9C%80%E5%96%9C%E6%AC%A2%E7%9A%84%E4%BA%94%E4%B8%AA%E5%BD%B1%E7%89%87/</loc>
     
     <lastmod>2024-01-06</lastmod>
@@ -181,15 +172,6 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>http://this1sirene.me/tags/index.html</loc>
-    
-    <lastmod>2022-05-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>http://this1sirene.me/</loc>
@@ -198,69 +180,6 @@
     <priority>1.0</priority>
   </url>
 
-  
-  <url>
-    <loc>http://this1sirene.me/tags/%E6%96%87%E6%A1%A3/</loc>
-    <lastmod>2024-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://this1sirene.me/tags/%E4%BB%A3%E7%A0%81/</loc>
-    <lastmod>2024-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://this1sirene.me/tags/%E7%A7%91%E5%B9%BB/</loc>
-    <lastmod>2024-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://this1sirene.me/tags/%E9%87%91%E8%9E%8D/</loc>
-    <lastmod>2024-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://this1sirene.me/tags/%E6%96%87%E5%AD%A6/</loc>
-    <lastmod>2024-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://this1sirene.me/tags/%E4%BC%A0%E8%AE%B0/</loc>
-    <lastmod>2024-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://this1sirene.me/tags/%E7%A4%BE%E7%A7%91/</loc>
-    <lastmod>2024-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://this1sirene.me/tags/%E8%AF%AD%E5%BD%95/</loc>
-    <lastmod>2024-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://this1sirene.me/tags/%E5%8E%86%E5%8F%B2/</loc>
-    <lastmod>2024-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
   
 
   
