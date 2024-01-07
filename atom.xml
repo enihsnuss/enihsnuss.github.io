@@ -61,6 +61,35 @@
   </entry>
   
   <entry>
+    <title>设计模式</title>
+    <link href="http://this1sirene.me/2022/06/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://this1sirene.me/2022/06/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</id>
+    <published>2022-06-09T07:07:30.000Z</published>
+    <updated>2024-01-06T16:00:42.213Z</updated>
+    
+    <content type="html"><![CDATA[<p>设计模式</p><p>策略模式</p><p>定义</p><p>定义了一个算法族，分别封装起来，使得它们之间可以互换。策略让算法的变化独立于使用它的客户。</p><p>原则</p><p>封装变化</p><p>优先使用组合而不是继承</p><p>针对接口编程，而不是针对实现编程</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;设计模式&lt;/p&gt;
+&lt;p&gt;策略模式&lt;/p&gt;
+&lt;p&gt;定义&lt;/p&gt;
+&lt;p&gt;定义了一个算法族，分别封装起来，使得它们之间可以互换。策略让算法的变化独立于使用它的客户。&lt;/p&gt;
+&lt;p&gt;原则&lt;/p&gt;
+&lt;p&gt;封装变化&lt;/p&gt;
+&lt;p&gt;优先使用组合而不是继承&lt;/p&gt;
+&lt;p&gt;针对接口编程，而不</summary>
+      
+    
+    
+    
+    <category term="编程" scheme="http://this1sirene.me/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>我与地坛</title>
     <link href="http://this1sirene.me/2022/06/09/tofix%E8%AF%BB%E5%8F%B2%E9%93%81%E7%94%9F%E3%80%8A%E6%88%91%E4%B8%8E%E5%9C%B0%E9%93%81%E3%80%8B/"/>
     <id>http://this1sirene.me/2022/06/09/tofix%E8%AF%BB%E5%8F%B2%E9%93%81%E7%94%9F%E3%80%8A%E6%88%91%E4%B8%8E%E5%9C%B0%E9%93%81%E3%80%8B/</id>
@@ -104,35 +133,6 @@
     
     
     <category term="阅读" scheme="http://this1sirene.me/categories/%E9%98%85%E8%AF%BB/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>设计模式</title>
-    <link href="http://this1sirene.me/2022/06/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://this1sirene.me/2022/06/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</id>
-    <published>2022-06-09T07:07:30.000Z</published>
-    <updated>2024-01-06T16:00:42.213Z</updated>
-    
-    <content type="html"><![CDATA[<p>设计模式</p><p>策略模式</p><p>定义</p><p>定义了一个算法族，分别封装起来，使得它们之间可以互换。策略让算法的变化独立于使用它的客户。</p><p>原则</p><p>封装变化</p><p>优先使用组合而不是继承</p><p>针对接口编程，而不是针对实现编程</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;设计模式&lt;/p&gt;
-&lt;p&gt;策略模式&lt;/p&gt;
-&lt;p&gt;定义&lt;/p&gt;
-&lt;p&gt;定义了一个算法族，分别封装起来，使得它们之间可以互换。策略让算法的变化独立于使用它的客户。&lt;/p&gt;
-&lt;p&gt;原则&lt;/p&gt;
-&lt;p&gt;封装变化&lt;/p&gt;
-&lt;p&gt;优先使用组合而不是继承&lt;/p&gt;
-&lt;p&gt;针对接口编程，而不</summary>
-      
-    
-    
-    
-    <category term="编程" scheme="http://this1sirene.me/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
   </entry>
